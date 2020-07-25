@@ -1,0 +1,24 @@
+replicaCount: 2
+
+image:
+  repository: amilane/alisha-py
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  port: 8000
+
+ingress:
+  enabled: true
+  hosts:
+    - host: arch.homework
+      paths: ["/otusapp"]
+
+
+postgresql:
+  enabled: true
+  postgresqlUsername: myuser
+  postgresqlPassword: passwd
+  postgresqlDatabase: myapp
+  service:
+    port: "5432"
